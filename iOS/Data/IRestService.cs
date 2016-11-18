@@ -8,8 +8,5 @@ namespace Bhasvic10th.iOS
 	{
 		Task<List<TodoItem>> RefreshDataAsync();
 
-		Task SaveTodoItemAsync(TodoItem item, bool isNewItem);
-
-		Task DeleteTodoItemAsync(string id);
 	}
 }
