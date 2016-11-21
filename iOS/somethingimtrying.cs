@@ -1,10 +1,15 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace Bhasvic10th.iOS
 {
-	public class Deserialize
+
+	public static List<RootObject> Deserialize<RootObject>(this string obstring)
 	{
-		public Deserialize()
-		{
-		}
-	}
+		var bulletinOb = JsonConvert.DeserializeObject<List<RootObject>>(obstring);
+		return bulletinOb;
+		//
+		//return 
+	};
+
 }

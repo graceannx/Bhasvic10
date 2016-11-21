@@ -12,7 +12,10 @@ using UIKit;
 namespace Bhasvic10th.iOS
 {
     [Register ("UILabel ")]
-    partial class UILabel 
+    partial class UILabel
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

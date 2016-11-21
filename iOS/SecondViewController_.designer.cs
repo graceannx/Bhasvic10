@@ -14,5 +14,8 @@ namespace Bhasvic10th.iOS
     [Register ("SecondViewController")]
     partial class SecondViewController
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

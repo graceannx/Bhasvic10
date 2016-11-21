@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 namespace Bhasvic10th.iOS
 {
 
-	public class RootClass
+	public class NewsItem
 		{
 			public string Name { get; set; }
 			public string Content { get; set; }

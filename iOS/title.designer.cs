@@ -14,5 +14,8 @@ namespace Bhasvic10th.iOS
     [Register ("title")]
     partial class title
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

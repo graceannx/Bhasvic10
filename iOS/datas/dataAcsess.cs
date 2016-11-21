@@ -1,10 +1,18 @@
 ﻿using System;
+using System.Data;
+using System.IO;
+using SQLite;
 namespace Bhasvic10th.iOS
 {
-	public class dbSave
+	public class DataAcsess
 	{
-		public dbSave()
-		{
-		}
+		//public static string dbSave()
+	//	{
+			
+
+
+			//return db;
+
+	//	}
 	}
 }

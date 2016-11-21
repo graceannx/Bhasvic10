@@ -12,7 +12,10 @@ using UIKit;
 namespace Bhasvic10th.iOS
 {
     [Register ("UINavigationController ")]
-    partial class UINavigationController 
+    partial class UINavigationController
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

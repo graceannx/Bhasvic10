@@ -14,5 +14,8 @@ namespace Bhasvic10th.iOS
     [Register ("ViewCOntroller")]
     partial class ViewCOntroller
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }

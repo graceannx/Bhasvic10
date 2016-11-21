@@ -8,14 +8,23 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 namespace Bhasvic10th.iOS
 {
-	public class JsonDeserialize
+	public class RestDeserialize
 	{
-		public async <List<RootObject>> RefreshDataAsync()
-		HttpClient client = new HttpClient();
-		Uri uri = new Uri("https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=2016-10-11&end=2016-11-11&student=true&public=true");
-		string obstring = await client.GetStringAsync(uri);
-		List<RootObject> bulletinOb = JsonConvert.DeserializeObject<List<RootObject>>(obstring);
-		return bulletinOb;
+		public List<NewsItem> Items { get; private set; }
+
+		public async Task<List<NewsItem>> RefreshDataAsync()
+		{
+			HttpClient client = new HttpClient();
+
+			Uri uri = new Uri("https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=2016-10-11&end=2016-11-11&student=true&public=true");
+			string obstring = await client.GetStringAsync(uri);
+			List<NewsItem> Items = JsonConvert.DeserializeObject<List<NewsItem>>(obstring);
+			Items = new List<NewsItem>();
+			return Items;
+
+
+		}
+
 
 	}
 }
