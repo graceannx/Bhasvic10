@@ -23,6 +23,18 @@ namespace Bhasvic10th.iOS
 
 
 		}
+		public override void ViewWillAppear(bool animated)
+		{
+			base.ViewWillAppear(animated);
+			this.NavigationController.SetNavigationBarHidden(true, animated);
+		}
+		public override void ViewWillDisappear(bool animated)
+		{
+			base.ViewWillDisappear(animated);
+			this.NavigationController.SetNavigationBarHidden(false, animated);
+		}
+
+
 
 
 		public override async void ViewDidLoad()
@@ -50,8 +62,16 @@ namespace Bhasvic10th.iOS
 
 
 			HttpClient client = new HttpClient();
-			Uri uri = new Uri("https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=2016-10-11&end=2016-11-11&student=true&public=true");
+			string startDate = DateTime.Now.AddYears(-1).ToString("yyyy-MM-dd");
+			string endDate = DateTime.Now.ToString("yyyy-MM-dd");
+
+			Console.WriteLine(startDate);
+			Console.WriteLine(endDate);
+			string uriString = "https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=" + startDate + "&end=" + endDate + "&student=true&public=true";
+
+			Uri uri = new Uri(uriString);
 			string jsonString = await client.GetStringAsync(uri);
+			Console.WriteLine(jsonString);
 			itemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
 
 			//button.SetTitle("hello", UIControlState.Normal);
@@ -168,11 +188,15 @@ namespace Bhasvic10th.iOS
 		public void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
 			SecondViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as SecondViewController;
-			controller.name = itemList.ElementAt(indexPath.Row).Name;
-			controller.date = itemList.ElementAt(indexPath.Row).DatePublished;
-			controller.content = itemList.ElementAt(indexPath.Row).Content;
-			controller.url = itemList.ElementAt(indexPath.Row).Url;
+	///		controller.name = itemList.ElementAt(indexPath.Row).Name;
+	//		controller.date = itemList.ElementAt(indexPath.Row).DatePublished;
+	//		controller.content = itemList.ElementAt(indexPath.Row).Content;
+	//		controller.url = itemList.ElementAt(indexPath.Row).Url;
+
+			controller.NewsItem = itemList.ElementAt(indexPath.Row);
 			this.NavigationController.PushViewController(controller, true);
+
+
 		}
 
 		public UITableViewCell GetCell(UITableView tableView, Foundation.NSIndexPath indexPath)

@@ -10,6 +10,7 @@ using UIKit;
 using Foundation;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Bhasvic10th.iOS
 {
@@ -19,11 +20,11 @@ namespace Bhasvic10th.iOS
 
 
 		UIScrollView scrollView;
-		public string name { get;  set; }
-		public string date { get; set; }
-		public string content { get; set; }
-		public string url { get; set; }
-
+		//public string name { get;  set; }
+	//	public string date { get; set; }
+	//	public string content { get; set; }
+	//	public string url { get; set; }
+		public NewsItem NewsItem { get; set;}
 		public SecondViewController (IntPtr handle) : base (handle)
         {
 			
@@ -43,18 +44,20 @@ namespace Bhasvic10th.iOS
 			titleLabel.Font = UIFont.BoldSystemFontOfSize(25); 
 			View.AddSubview(titleLabel);
 
-			var nameLabel = new UILabel(new CGRect(10, 50, View.Bounds.Width, 30));
-			nameLabel.Text = name;
+			var nameLabel = new UILabel(new CGRect(10, 75, View.Bounds.Width, 30));
+			nameLabel.Text = NewsItem.Name;
 			nameLabel.Lines = 0;
+			nameLabel.Font = UIFont.BoldSystemFontOfSize(30);
 			nameLabel.LineBreakMode = UILineBreakMode.WordWrap;
 			scrollView.AddSubview(nameLabel);
 
 			var dateLabel = new UILabel(new CGRect(10, 100, View.Bounds.Width, 30));
-			dateLabel.Text = date;
+			DateTime dt = DateTime.ParseExact(NewsItem.DatePublished, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+			dateLabel.Text = dt.ToShortDateString();
 			scrollView.AddSubview(dateLabel);
 
 			var contentLabel = new UILabel(new CGRect(10, 150, View.Bounds.Width, View.Bounds.Height));
-			string noHTML = Regex.Replace(content, @"<[^>]+>|&nbsp;", "").Trim();
+			string noHTML = Regex.Replace(NewsItem.Content, @"<[^>]+>|&nbsp;", "").Trim();
 			string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
 			contentLabel.Text = noHTMLNormalised;
 			contentLabel.Lines = 0;
@@ -62,7 +65,7 @@ namespace Bhasvic10th.iOS
 			scrollView.AddSubview(contentLabel);
 
 			var urlLabel = new UILabel(new CGRect(10,500 , View.Bounds.Width, 30));
-			urlLabel.Text = url;
+			urlLabel.Text = NewsItem.Url;
 			scrollView.AddSubview(urlLabel);
 
 			this.View.AddSubview(scrollView);
