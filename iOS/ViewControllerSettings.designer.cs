@@ -11,8 +11,8 @@ using UIKit;
 
 namespace Bhasvic10th.iOS
 {
-    [Register ("SecondViewController")]
-    partial class SecondViewController
+    [Register ("ViewController1")]
+    partial class ViewControllerSettings
     {
         void ReleaseDesignerOutlets ()
         {

@@ -14,6 +14,9 @@ namespace Bhasvic10th.iOS
 			public string ImageUrl { get; set; }
 			public string Url { get; set; }
 			public int FileUploadId { get; set; }
+			public string Category { get; set;}
+			public string NotificationDate { get; set; }
+			public string DateOfEvent { get; set; } 
 		}
 
 

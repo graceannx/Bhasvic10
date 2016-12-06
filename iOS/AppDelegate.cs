@@ -11,7 +11,7 @@ namespace Bhasvic10th.iOS
 		// class-level declarations
 		UIWindow window;
 		public static UIStoryboard Storyboard = UIStoryboard.FromName("MainStoryboard", null);
-		public static UIViewController initialViewController;
+		public static UIViewController firstViewController;
 
 
 		public override UIWindow Window
@@ -27,9 +27,10 @@ namespace Bhasvic10th.iOS
 			// If not required for your application you can safely delete this method
 			window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-			initialViewController = Storyboard.InstantiateInitialViewController() as UIViewController;
+			firstViewController = Storyboard.InstantiateInitialViewController() as UIViewController;
 
-			window.RootViewController = initialViewController;
+
+			window.RootViewController = firstViewController;
 			window.MakeKeyAndVisible();
 			return true;
 		}

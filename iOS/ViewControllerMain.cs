@@ -9,16 +9,21 @@ using SQLite;
 using UIKit;
 using Foundation;
 using System.Linq;
+using CoreAnimation;
+using Foundation;
 
 namespace Bhasvic10th.iOS
 {
-	public partial class ViewController : UIViewController, IUITableViewDelegate, IUITableViewDataSource
+	public partial class ViewControllerMain : UIViewController, IUITableViewDelegate, IUITableViewDataSource 
+
 	{
 		UIViewController SecondViewController;
 		List<NewsItem> itemList;
 
 
-		public ViewController(IntPtr handle) : base(handle)
+
+
+		public ViewControllerMain(IntPtr handle) : base(handle)
 		{
 
 
@@ -45,29 +50,65 @@ namespace Bhasvic10th.iOS
 
 
 
+
+			View.BackgroundColor = UIColor.FromRGB(13, 13, 13);
+
+
 			//creates BhasvicTitle 
-			var titleLabel = new UILabel(new CGRect(10, 20, View.Bounds.Width, 30));
+			var titleLabel = new UILabel(new CGRect(10, 20, View.Bounds.Width-10, 30));
 			titleLabel.Text = "BHASVIC";
-			titleLabel.Font = UIFont.BoldSystemFontOfSize(25);
+			titleLabel.Font = UIFont.BoldSystemFontOfSize(20);
+			titleLabel.TextColor = UIColor.LightTextColor;
+
+
+
+
 			View.AddSubview(titleLabel);
+
+			var picker = new UIPickerView(new CGRect(10, 20, View.Bounds.Width - 20, 150));
+			string[] categories = new string[] {"Economics, Business & Acc", "Archaeology, Classical Civs, History","Art, Photog, Textiles, Graphics","Biology & Env Studies","Chemistry","Computing IT","Media & Film","Dance, Drama, Theatre Studies","English","ESOL","Languages","Geography","Law, Politics, Philosophy","Maths","Music","Physics","Sociology, Psych, H & Soc Care","Sport and PE","SU Events","General","UCAS, University","Apprenticeship, Work","Extra-Curricular","Tutor & Welfare"};
+			picker.BackgroundColor = UIColor.LightGray;
+			picker.Model = new PickerViewModel();
+
+
+
+			//	picker.AccessibilityActivate 
+			View.AddSubview(picker);
 			//var source = new;
+
+			//var mainLabel = new UILabel(new CGRect(View.Frame.Right-75, 20, View.Bounds.Width-10, 30));//View.AddConstraint(NSLayoutConstraint.Create(mainLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, mainLabel, NSLayoutAttribute.Left, 1, 10));
+			//mainLabel.Text = "TODAY";
+			//mainLabel.Font = UIFont.BoldSystemFontOfSize(20);
+			//mainLabel.TextColor = UIColor.FromRGB(250, 209, 124);
+
+
+		
+
+
+		//	View.AddSubview(mainLabel);
+
+
+
 
 			//var button = new UIButton
 			//{
 			//	Frame = new CGRect(0, 50, View.Bounds.Width, 30),
 			//	BackgroundColor = UIColor.Cyan
 			//};
-		
+
+
 
 
 
 			HttpClient client = new HttpClient();
-			string startDate = DateTime.Now.AddYears(-1).ToString("yyyy-MM-dd");
+
+			string startDate = DateTime.Now.AddDays(-100).ToString("yyyy-MM-dd");
 			string endDate = DateTime.Now.ToString("yyyy-MM-dd");
+				
 
 			Console.WriteLine(startDate);
 			Console.WriteLine(endDate);
-			string uriString = "https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=" + startDate + "&end=" + endDate + "&student=true&public=true";
+			string uriString = "https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=" + startDate + "&end=" + endDate + "&student=true&public=false";
 
 			Uri uri = new Uri(uriString);
 			string jsonString = await client.GetStringAsync(uri);
@@ -131,11 +172,31 @@ namespace Bhasvic10th.iOS
 			//	string[] data = new string[] {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","b" ,"c" ,"d" ,"e" };
 			//create table view
 
+			//var g = UIGraphics.GetCurrentContext();
+			//g.SetLineWidth(10);
+			//UIColor.Blue.SetFill();
+			//UIColor.Red.SetStroke();
+
+			////create geometry
+			//var path = new CGPath();
+
+			//path.AddLines(new CGPoint[]{
+			//	new CGPoint (0, 50),
+			//	new CGPoint (View.Bounds.Width, View.Bounds.Height) });
+
+			//path.CloseSubpath();
+
+			////add geometry to graphics context and draw it
+			//g.AddPath(path);
+			//g.DrawPath(CGPathDrawingMode.FillStroke);
+
+
+
 			UITableView _table;
 			_table = new UITableView
 			{
-				Frame = new CGRect(0, 50, View.Bounds.Width, View.Bounds.Height - 100),
-			//	Source = new TableSource(itemList, NavigationController)
+				Frame = new CGRect(0, 170, View.Bounds.Width, View.Bounds.Height - 100),
+				BackgroundColor =  UIColor.FromRGB(24,24,24)			//	Source = new TableSource(itemList, NavigationController)
 
 			};
 			//TableSource source = new TableSource(itemList, NavigationController);
@@ -145,6 +206,7 @@ namespace Bhasvic10th.iOS
 
 
 			View.AddSubview(_table);
+
 
 
 
@@ -162,6 +224,8 @@ namespace Bhasvic10th.iOS
 
 		//	}
 		//
+
+
 
 
 
@@ -187,7 +251,7 @@ namespace Bhasvic10th.iOS
 		 [Export("tableView:didSelectRowAtIndexPath:")]
 		public void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			SecondViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as SecondViewController;
+			ItemDetailedViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as ItemDetailedViewController;
 	///		controller.name = itemList.ElementAt(indexPath.Row).Name;
 	//		controller.date = itemList.ElementAt(indexPath.Row).DatePublished;
 	//		controller.content = itemList.ElementAt(indexPath.Row).Content;
@@ -208,16 +272,44 @@ namespace Bhasvic10th.iOS
 			{
 				cell = new UITableViewCell(UITableViewCellStyle.Default, cellidentifier);
 			}
+
+			if (indexPath.Row % 2 == 0)
+			{
+				cell.BackgroundColor = UIColor.FromRGB(13, 13, 13);
+
+			}
+			else {
+				cell.BackgroundColor = UIColor.FromRGB(24, 24, 24);
+	  
+			}
 			//produces a cell in a default style
 			//cell.ContentView.BackgroundColor = UIColor.DarkGray;
+			cell.TextLabel.TextColor = UIColor.LightTextColor;
 			cell.TextLabel.Text = itemList.ElementAt(indexPath.Row).Name;
 
 			return cell;
 
 
-
-
 		}
+
+		//public nint GetComponentCount(UIPickerView pickerView)
+		//{
+		//	throw new NotImplementedException();
+		//}
+
+		//public nint GetRowsInComponent(UIPickerView pickerView, nint component)
+		//{
+		//	throw new NotImplementedException();
+		//}
+
+		//[Export("pickerView:titleForRow:forComponent:")]
+		//public string GetTitle(UIPickerView pickerView, nint row, nint component)
+		//{
+		//	return "Component " + row.ToString();
+		//}
+		//} 
+		
+
 
 	}
 

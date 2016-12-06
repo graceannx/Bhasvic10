@@ -11,12 +11,9 @@ using UIKit;
 
 namespace Bhasvic10th.iOS
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("ViewController2")]
+    partial class ViewController2
     {
-        [Outlet]
-        UIKit.UIButton Button { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
         }

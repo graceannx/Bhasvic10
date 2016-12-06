@@ -15,7 +15,7 @@ using System.Globalization;
 namespace Bhasvic10th.iOS
 {
 	
-    public partial class SecondViewController: UIViewController
+    public partial class ItemDetailedViewController: UIViewController
     {
 
 
@@ -25,7 +25,7 @@ namespace Bhasvic10th.iOS
 	//	public string content { get; set; }
 	//	public string url { get; set; }
 		public NewsItem NewsItem { get; set;}
-		public SecondViewController (IntPtr handle) : base (handle)
+		public ItemDetailedViewController (IntPtr handle) : base (handle)
         {
 			
         }
@@ -56,13 +56,31 @@ namespace Bhasvic10th.iOS
 			dateLabel.Text = dt.ToShortDateString();
 			scrollView.AddSubview(dateLabel);
 
-			var contentLabel = new UILabel(new CGRect(10, 150, View.Bounds.Width, View.Bounds.Height));
+			var contentLabel = new UILabel(new CGRect(10, 120, View.Bounds.Width, 300));
 			string noHTML = Regex.Replace(NewsItem.Content, @"<[^>]+>|&nbsp;", "").Trim();
 			string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
 			contentLabel.Text = noHTMLNormalised;
 			contentLabel.Lines = 0;
 			contentLabel.LineBreakMode = UILineBreakMode.WordWrap;
 			scrollView.AddSubview(contentLabel);
+
+			var dateoELabel = new UILabel(new CGRect(10, 150, View.Bounds.Width, 30));
+			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+			dateLabel.Text = NewsItem.DateOfEvent;
+			scrollView.AddSubview(dateoELabel);
+
+
+			var dateNLabel = new UILabel(new CGRect(10, 130, View.Bounds.Width, 30));
+			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+			dateLabel.Text = NewsItem.NotificationDate;
+			scrollView.AddSubview(dateNLabel);
+
+
+			var categoryLabel = new UILabel(new CGRect(10, 80, View.Bounds.Width, 30));
+			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+			dateLabel.Text = NewsItem.Category;
+			scrollView.AddSubview(categoryLabel);
+
 
 			var urlLabel = new UILabel(new CGRect(10,500 , View.Bounds.Width, 30));
 			urlLabel.Text = NewsItem.Url;
