@@ -19,6 +19,7 @@ namespace Bhasvic10th.iOS
 	{
 		UIViewController SecondViewController;
 		List<NewsItem> itemList;
+		List<NewsItem> categorisedItemList;
 
 
 
@@ -49,7 +50,7 @@ namespace Bhasvic10th.iOS
 
 
 
-
+			var selectedtab = "General";
 
 			View.BackgroundColor = UIColor.FromRGB(13, 13, 13);
 
@@ -69,6 +70,8 @@ namespace Bhasvic10th.iOS
 			string[] categories = new string[] {"Economics, Business & Acc", "Archaeology, Classical Civs, History","Art, Photog, Textiles, Graphics","Biology & Env Studies","Chemistry","Computing IT","Media & Film","Dance, Drama, Theatre Studies","English","ESOL","Languages","Geography","Law, Politics, Philosophy","Maths","Music","Physics","Sociology, Psych, H & Soc Care","Sport and PE","SU Events","General","UCAS, University","Apprenticeship, Work","Extra-Curricular","Tutor & Welfare"};
 			picker.BackgroundColor = UIColor.LightGray;
 			picker.Model = new PickerViewModel();
+			picker.Hidden = true;
+
 
 
 
@@ -76,28 +79,39 @@ namespace Bhasvic10th.iOS
 			View.AddSubview(picker);
 			//var source = new;
 
-			//var mainLabel = new UILabel(new CGRect(View.Frame.Right-75, 20, View.Bounds.Width-10, 30));//View.AddConstraint(NSLayoutConstraint.Create(mainLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, mainLabel, NSLayoutAttribute.Left, 1, 10));
-			//mainLabel.Text = "TODAY";
-			//mainLabel.Font = UIFont.BoldSystemFontOfSize(20);
-			//mainLabel.TextColor = UIColor.FromRGB(250, 209, 124);
+			var mainLabel = new UILabel(new CGRect(View.Frame.Right-75, 20, View.Bounds.Width-10, 30));//View.AddConstraint(NSLayoutConstraint.Create(mainLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, mainLabel, NSLayoutAttribute.Left, 1, 10));
+			mainLabel.Text = "TODAY";
+			mainLabel.Font = UIFont.BoldSystemFontOfSize(20);
+			mainLabel.TextColor = UIColor.FromRGB(250, 209, 124);
 
-
-		
-
-
-		//	View.AddSubview(mainLabel);
+			View.AddSubview(mainLabel);
 
 
 
+			var button = new UIButton
+			{
+				Frame = new CGRect(0, 50, View.Bounds.Width, 30),
+				BackgroundColor = UIColor.Cyan
+				                         
 
-			//var button = new UIButton
-			//{
-			//	Frame = new CGRect(0, 50, View.Bounds.Width, 30),
-			//	BackgroundColor = UIColor.Cyan
-			//};
+				                          
+			};
 
+			button.TouchUpInside += delegate
+			{
+				if (picker.Hidden == false)
+				{
+					picker.Hidden = true;
+					selectedtab = categories[picker.SelectedRowInComponent(0)];
+					Console.WriteLine(selectedtab);
+				}
+				else {
+					picker.Hidden = false;
 
+				}
+			};
 
+			View.AddSubview(button);
 
 
 			HttpClient client = new HttpClient();
@@ -114,6 +128,15 @@ namespace Bhasvic10th.iOS
 			string jsonString = await client.GetStringAsync(uri);
 			Console.WriteLine(jsonString);
 			itemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
+			categorisedItemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
+			//categorisedItemList.AddRange(itemList);
+			                        
+			Console.WriteLine(categorisedItemList.ElementAt(0).Category);
+
+
+
+
+
 
 			//button.SetTitle("hello", UIControlState.Normal);
 			//View.Add(button);
@@ -201,10 +224,19 @@ namespace Bhasvic10th.iOS
 			};
 			//TableSource source = new TableSource(itemList, NavigationController);
 			//source.RowBeenSelected += handleRowBeenSelected;
+
+
+
+			for (int i = 1; i <= itemList.Count-1; i++)
+			{
+				if (itemList.ElementAt(i).Category == selectedtab)
+				{
+					categorisedItemList.Add(itemList.ElementAt(i));
+
+				}
+			}
 			_table.WeakDataSource = this;
 			_table.WeakDelegate = this;
-
-
 			View.AddSubview(_table);
 
 
@@ -285,7 +317,7 @@ namespace Bhasvic10th.iOS
 			//produces a cell in a default style
 			//cell.ContentView.BackgroundColor = UIColor.DarkGray;
 			cell.TextLabel.TextColor = UIColor.LightTextColor;
-			cell.TextLabel.Text = itemList.ElementAt(indexPath.Row).Name;
+			cell.TextLabel.Text = categorisedItemList.ElementAt(indexPath.Row).Name;
 
 			return cell;
 
