@@ -50,7 +50,7 @@ namespace Bhasvic10th.iOS
 
 
 
-			var selectedtab = "General";
+			var selectedtab = "Economics, Business & Acc";
 
 			View.BackgroundColor = UIColor.FromRGB(13, 13, 13);
 
@@ -113,6 +113,12 @@ namespace Bhasvic10th.iOS
 
 			View.AddSubview(button);
 
+		
+
+
+
+
+
 
 			HttpClient client = new HttpClient();
 
@@ -124,18 +130,72 @@ namespace Bhasvic10th.iOS
 			Console.WriteLine(endDate);
 			string uriString = "https://www.bhasvic.ac.uk/umbraco/api/BHANewsPostservice/getPosts?start=" + startDate + "&end=" + endDate + "&student=true&public=false";
 
+
+
+		
 			Uri uri = new Uri(uriString);
 			string jsonString = await client.GetStringAsync(uri);
-			Console.WriteLine(jsonString);
+			//var filename = Path.Combine(documents, "account.json");
+			//ile.WriteAllText(filename, jsonString);
+
+			//Console.WriteLine(jsonString);
 			itemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
 			categorisedItemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
-			//categorisedItemList.AddRange(itemList);
+			categorisedItemList.AddRange(itemList);
+			var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+			var _pathToDatabase = Path.Combine(documents, "db_sqlite-net.db");
+
+
+
+
+			string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+			string libraryPath = Path.Combine(documentsPath, "../Library/");
+			var path = Path.Combine(libraryPath, "MyDatabase.db3");
+			Console.WriteLine(path);
+
+			var db = new SQLite.SQLiteConnection(path);
+
+			db.CreateTable<NewsItem>();
+
+
+
+				db.RunInTransaction(() =>
+				{
+					foreach (var item in itemList)
+					{
+					db.Insert(item);
+					}
+
+				});
+
+
+
+
+			var query = db.Table<NewsItem>().Where(v => v.Category.Equals("General"));
+
+				foreach (var category in query)
+					  {
+					Console.WriteLine("Category: " + category.Name);
+					  }
+
+			//	var query = db.Query<NewsItem>("select * from NewsItem where Category = 'General'");
+			//	Console.WriteLine(query.ToString());
+				
+
+
 			                        
 			Console.WriteLine(categorisedItemList.ElementAt(0).Category);
 
 
 
 
+
+
+
+			//using (var conn = new SQLite.SQLiteConnection(_pathToDatabase))
+			//{
+			//	conn.CreateTable<NewsItem>();
+			//}
 
 
 			//button.SetTitle("hello", UIControlState.Normal);
@@ -218,7 +278,7 @@ namespace Bhasvic10th.iOS
 			UITableView _table;
 			_table = new UITableView
 			{
-				Frame = new CGRect(0, 170, View.Bounds.Width, View.Bounds.Height - 100),
+				Frame = new CGRect(0, 150, View.Bounds.Width, View.Bounds.Height - 100),
 				BackgroundColor =  UIColor.FromRGB(24,24,24)			//	Source = new TableSource(itemList, NavigationController)
 
 			};
@@ -229,9 +289,9 @@ namespace Bhasvic10th.iOS
 
 			for (int i = 1; i <= itemList.Count-1; i++)
 			{
-				if (itemList.ElementAt(i).Category == selectedtab)
+				if (itemList.ElementAt(i).Category != selectedtab)
 				{
-					categorisedItemList.Add(itemList.ElementAt(i));
+					categorisedItemList.Remove(itemList.ElementAt(i));
 
 				}
 			}

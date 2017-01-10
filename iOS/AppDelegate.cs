@@ -32,6 +32,18 @@ namespace Bhasvic10th.iOS
 
 			window.RootViewController = firstViewController;
 			window.MakeKeyAndVisible();
+
+			if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+			{
+				var notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(
+					UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null
+				);
+
+				application.RegisterUserNotificationSettings(notificationSettings);
+			}
+
+
+
 			return true;
 		}
 

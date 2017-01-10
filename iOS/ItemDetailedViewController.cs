@@ -64,22 +64,25 @@ namespace Bhasvic10th.iOS
 			contentLabel.LineBreakMode = UILineBreakMode.WordWrap;
 			scrollView.AddSubview(contentLabel);
 
-			var dateoELabel = new UILabel(new CGRect(10, 150, View.Bounds.Width, 30));
+			var dateoELabel = new UILabel(new CGRect(10, 80, View.Bounds.Width, 30));
 			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = NewsItem.DateOfEvent;
+			Console.WriteLine(NewsItem.DateOfEvent);
+
 			scrollView.AddSubview(dateoELabel);
 
 
 			var dateNLabel = new UILabel(new CGRect(10, 130, View.Bounds.Width, 30));
 			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = NewsItem.NotificationDate;
+			Console.WriteLine(NewsItem.NotificationDate);
 			scrollView.AddSubview(dateNLabel);
 
 
-			var categoryLabel = new UILabel(new CGRect(10, 80, View.Bounds.Width, 30));
-			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
-			dateLabel.Text = NewsItem.Category;
-			scrollView.AddSubview(categoryLabel);
+			//var categoryLabel = new UILabel(new CGRect(10, 80, View.Bounds.Width, 30));
+			////DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
+			//dateLabel.Text = NewsItem.Category;
+			//scrollView.AddSubview(categoryLabel);
 
 
 			var urlLabel = new UILabel(new CGRect(10,500 , View.Bounds.Width, 30));
