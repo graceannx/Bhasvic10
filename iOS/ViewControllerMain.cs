@@ -163,10 +163,11 @@ namespace Bhasvic10th.iOS
 				{
 					foreach (var item in itemList)
 					{
-					db.Insert(item);
+					db.InsertOrReplace(item);
 					}
 
 				});
+			//todo, create a new table after select period of time and omit old data
 
 
 

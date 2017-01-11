@@ -16,6 +16,7 @@ namespace Bhasvic10th.iOS
 			public string Summary { get; set; }
 			public string ImageUrl { get; set; }
 			[PrimaryKey]
+		//Current primary key, but slow because string, to improve ask steve for numerical ID that is consistent with database, issue because archive possibility of URL is unstable. Server ID are reliable..
 			public string Url { get; set; }
 			public int FileUploadId { get; set; }
 			public string Category { get; set;}
