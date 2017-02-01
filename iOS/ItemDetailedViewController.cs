@@ -11,25 +11,27 @@ using Foundation;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace Bhasvic10th.iOS
 {
-	
-    public partial class ItemDetailedViewController: UIViewController
-    {
+
+	public partial class ItemDetailedViewController : UIViewController
+	{
 
 
 		UIScrollView scrollView;
 		//public string name { get;  set; }
-	//	public string date { get; set; }
-	//	public string content { get; set; }
-	//	public string url { get; set; }
-		public NewsItem NewsItem { get; set;}
-		public ItemDetailedViewController (IntPtr handle) : base (handle)
-        {
-			
-        }
+		//	public string date { get; set; }
+		//	public string content { get; set; }
+		//	public string url { get; set; }
+		public NewsItem NewsItem { get; set; }
+		public ItemDetailedViewController(IntPtr handle) : base(handle)
+		{
 
+		}
+
+	
 
 		public override void ViewDidLoad()
 		{
@@ -39,24 +41,24 @@ namespace Bhasvic10th.iOS
 
 
 
-			var titleLabel = new UILabel(new CGRect(10, 20, View.Bounds.Width, 30));
+			var titleLabel = new UILabel(new CGRect(10, 20, View.Bounds.Width - 10, 30));
 			titleLabel.Text = "BHASVIC";
-			titleLabel.Font = UIFont.BoldSystemFontOfSize(25); 
+			titleLabel.Font = UIFont.BoldSystemFontOfSize(25);
 			View.AddSubview(titleLabel);
 
-			var nameLabel = new UILabel(new CGRect(10, 75, View.Bounds.Width, 30));
+			var nameLabel = new UILabel(new CGRect(10, 0, View.Bounds.Width - 10, 200));
 			nameLabel.Text = NewsItem.Name;
 			nameLabel.Lines = 0;
 			nameLabel.Font = UIFont.BoldSystemFontOfSize(30);
 			nameLabel.LineBreakMode = UILineBreakMode.WordWrap;
 			scrollView.AddSubview(nameLabel);
 
-			var dateLabel = new UILabel(new CGRect(10, 100, View.Bounds.Width, 30));
+			var dateLabel = new UILabel(new CGRect(10, 100, View.Bounds.Width - 10, 30));
 			DateTime dt = DateTime.ParseExact(NewsItem.DatePublished, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = dt.ToShortDateString();
 			scrollView.AddSubview(dateLabel);
 
-			var contentLabel = new UILabel(new CGRect(10, 120, View.Bounds.Width, 300));
+			var contentLabel = new UILabel(new CGRect(10, 120, View.Bounds.Width - 20, 300));
 			string noHTML = Regex.Replace(NewsItem.Content, @"<[^>]+>|&nbsp;", "").Trim();
 			string noHTMLNormalised = Regex.Replace(noHTML, @"\s{2,}", " ");
 			contentLabel.Text = noHTMLNormalised;
@@ -64,7 +66,7 @@ namespace Bhasvic10th.iOS
 			contentLabel.LineBreakMode = UILineBreakMode.WordWrap;
 			scrollView.AddSubview(contentLabel);
 
-			var dateoELabel = new UILabel(new CGRect(10, 80, View.Bounds.Width, 30));
+			var dateoELabel = new UILabel(new CGRect(10, 80, View.Bounds.Width - 10, 30));
 			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = NewsItem.DateOfEvent;
 			Console.WriteLine(NewsItem.DateOfEvent);
@@ -72,11 +74,21 @@ namespace Bhasvic10th.iOS
 			scrollView.AddSubview(dateoELabel);
 
 
-			var dateNLabel = new UILabel(new CGRect(10, 130, View.Bounds.Width, 30));
+			var dateNLabel = new UILabel(new CGRect(10, 130, View.Bounds.Width - 10, 30));
 			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = NewsItem.NotificationDate;
 			Console.WriteLine(NewsItem.NotificationDate);
 			scrollView.AddSubview(dateNLabel);
+
+
+
+					
+
+			//var image = new UIImage();
+			////image = this.LoadImage("some image url");
+			//var imageView = new UIImageView();
+			//imageView.Image = image;
+			//View.AddSubview(imageView);
 
 
 			//var categoryLabel = new UILabel(new CGRect(10, 80, View.Bounds.Width, 30));
@@ -85,7 +97,7 @@ namespace Bhasvic10th.iOS
 			//scrollView.AddSubview(categoryLabel);
 
 
-			var urlLabel = new UILabel(new CGRect(10,500 , View.Bounds.Width, 30));
+			var urlLabel = new UILabel(new CGRect(10,500 , View.Bounds.Width-10, 30));
 			urlLabel.Text = NewsItem.Url;
 			scrollView.AddSubview(urlLabel);
 
@@ -98,6 +110,18 @@ namespace Bhasvic10th.iOS
 
 
 
+		}
+		public async Task<UIImage> LoadImage(string imageUrl)
+		{
+			var httpClient = new HttpClient();
+
+			Task<byte[]> contentsTask = httpClient.GetByteArrayAsync(imageUrl);
+
+			// await! control returns to the caller and the task continues to run on another thread
+			var contents = await contentsTask;
+
+			// load from bytes
+			return UIImage.LoadFromData(NSData.FromArray(contents));
 		}
 
 		public override void ViewDidLayoutSubviews()

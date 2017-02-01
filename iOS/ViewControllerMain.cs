@@ -79,13 +79,17 @@ namespace Bhasvic10th.iOS
 			View.AddSubview(picker);
 			//var source = new;
 
-			var mainLabel = new UILabel(new CGRect(View.Frame.Right-75, 20, View.Bounds.Width-10, 30));//View.AddConstraint(NSLayoutConstraint.Create(mainLabel, NSLayoutAttribute.Right, NSLayoutRelation.Equal, mainLabel, NSLayoutAttribute.Left, 1, 10));
-			mainLabel.Text = "TODAY";
-			mainLabel.Font = UIFont.BoldSystemFontOfSize(20);
-			mainLabel.TextColor = UIColor.FromRGB(250, 209, 124);
 
-			View.AddSubview(mainLabel);
 
+
+
+
+			var mainlabel = UIButton.FromType(UIButtonType.RoundedRect);
+			mainlabel.SetTitle("HOME", UIControlState.Normal);
+			mainlabel.AccessibilityFrame = new CGRect(View.Frame.Right - 75, 20, View.Bounds.Width - 10, 30);
+			mainlabel.Font = UIFont.BoldSystemFontOfSize(20);
+			mainlabel.SetTitleColor(UIColor.FromRGB(250, 209, 124), UIControlState.Disabled);
+			View.AddSubview(mainlabel);
 
 
 			var button = new UIButton
@@ -378,6 +382,7 @@ namespace Bhasvic10th.iOS
 			//produces a cell in a default style
 			//cell.ContentView.BackgroundColor = UIColor.DarkGray;
 			cell.TextLabel.TextColor = UIColor.LightTextColor;
+
 			cell.TextLabel.Text = categorisedItemList.ElementAt(indexPath.Row).Name;
 
 			return cell;

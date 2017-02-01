@@ -154,6 +154,14 @@
     <Compile Include="Picker.cs" />
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="SQLite.cs" />
+    <Compile Include="NavigationController4.cs" />
+    <Compile Include="NavigationController4.designer.cs">
+      <DependentUpon>NavigationController4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController4.cs" />
+    <Compile Include="ViewController4.designer.cs">
+      <DependentUpon>ViewController4.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
