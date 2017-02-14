@@ -11,8 +11,8 @@ using UIKit;
 
 namespace Bhasvic10th.iOS
 {
-    [Register ("HomeItemDetailedVC")]
-    partial class ItemDetailedViewController
+    [Register ("HomeViewController")]
+    partial class HomeViewController
     {
         void ReleaseDesignerOutlets ()
         {

@@ -162,6 +162,48 @@
     <Compile Include="ViewController4.designer.cs">
       <DependentUpon>ViewController4.cs</DependentUpon>
     </Compile>
+    <Compile Include="ItemDetailedVCSTBd.cs" />
+    <Compile Include="ItemDetailedVCSTBd.designer.cs">
+      <DependentUpon>ItemDetailedVCSTBd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsNavigationController.cs" />
+    <Compile Include="SettingsNavigationController.designer.cs">
+      <DependentUpon>SettingsNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeNavigationController.cs" />
+    <Compile Include="HomeNavigationController.designer.cs">
+      <DependentUpon>HomeNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventsNavigationController.cs" />
+    <Compile Include="EventsNavigationController.designer.cs">
+      <DependentUpon>EventsNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventsViewController.cs" />
+    <Compile Include="EventsViewController.designer.cs">
+      <DependentUpon>EventsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeViewController.cs" />
+    <Compile Include="HomeViewController.designer.cs">
+      <DependentUpon>HomeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController.cs" />
+    <Compile Include="ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsViewController.cs" />
+    <Compile Include="SettingsViewController.designer.cs">
+      <DependentUpon>SettingsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventsItemDetailedVC.cs" />
+    <Compile Include="EventsItemDetailedVC.designer.cs">
+      <DependentUpon>EventsItemDetailedVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationCategorySelectorVC.cs" />
+    <Compile Include="NotificationCategorySelectorVC.designer.cs">
+      <DependentUpon>NotificationCategorySelectorVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LocalBhasvicDB.cs" />
+    <Compile Include="NewsItemGrabber.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -11,8 +11,8 @@ using UIKit;
 
 namespace Bhasvic10th.iOS
 {
-    [Register ("HomeItemDetailedVC")]
-    partial class ItemDetailedViewController
+    [Register ("EventsNavigationController")]
+    partial class EventsNavigationController
     {
         void ReleaseDesignerOutlets ()
         {

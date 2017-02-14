@@ -17,7 +17,7 @@ namespace Bhasvic10th.iOS
 	public partial class ViewControllerMain : UIViewController, IUITableViewDelegate, IUITableViewDataSource 
 
 	{
-		UIViewController SecondViewController;
+		UIViewController HomeItemDetailedVC;
 		List<NewsItem> itemList;
 		List<NewsItem> categorisedItemList;
 
@@ -145,7 +145,7 @@ namespace Bhasvic10th.iOS
 			//Console.WriteLine(jsonString);
 			itemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
 			categorisedItemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
-			categorisedItemList.AddRange(itemList);
+			//categorisedItemList.AddRange(itemList);
 			var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 			var _pathToDatabase = Path.Combine(documents, "db_sqlite-net.db");
 
@@ -348,7 +348,7 @@ namespace Bhasvic10th.iOS
 		 [Export("tableView:didSelectRowAtIndexPath:")]
 		public void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
-			ItemDetailedViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as ItemDetailedViewController;
+			ItemDetailedViewController controller = this.Storyboard.InstantiateViewController("HomeItemDetailedVC") as ItemDetailedViewController;
 	///		controller.name = itemList.ElementAt(indexPath.Row).Name;
 	//		controller.date = itemList.ElementAt(indexPath.Row).DatePublished;
 	//		controller.content = itemList.ElementAt(indexPath.Row).Content;

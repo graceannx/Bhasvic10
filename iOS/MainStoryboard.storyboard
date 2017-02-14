@@ -8,13 +8,13 @@
         <!--View Controller-->
         <scene sceneID="4">
             <objects>
-                <viewController storyboardIdentifier="ViewController3" id="5" customClass="ViewController" sceneMemberID="viewController" modalTransitionStyle="flipHorizontal">
+                <viewController storyboardIdentifier="HomeViewController" id="5" customClass="ViewController" sceneMemberID="viewController" modalTransitionStyle="flipHorizontal">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2"/>
                         <viewControllerLayoutGuide type="bottom" id="3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2027">
@@ -33,16 +33,16 @@
         <!--Second View Controller-->
         <scene sceneID="11">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="12" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeItemDetailedVC" id="12" customClass="HomeItemDetailedVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9"/>
                         <viewControllerLayoutGuide type="bottom" id="10"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="13">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1907" misplaced="YES">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1907">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1901">
@@ -73,12 +73,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176" y="441"/>
+            <point key="canvasLocation" x="2537" y="805"/>
         </scene>
         <!--Home-->
         <scene sceneID="27">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="28" customClass="NavigationController" sceneMemberID="viewController" modalTransitionStyle="flipHorizontal">
+                <navigationController storyboardIdentifier="HomeNavigationController" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="28" customClass="HomeNavigationController" sceneMemberID="viewController" modalTransitionStyle="flipHorizontal">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Home" id="318"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -97,14 +97,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1379" y="817"/>
+            <point key="canvasLocation" x="1298" y="705"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="155">
             <objects>
                 <tabBarController storyboardIdentifier="TabController" id="156" customClass="TabController" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" restorationIdentifier="TabBar" barStyle="black" id="159">
-                        <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                        <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -122,9 +122,9 @@
         <!--Categories-->
         <scene sceneID="325">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController1" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="326" customClass="NavigationController1" sceneMemberID="viewController" modalTransitionStyle="crossDissolve">
+                <navigationController storyboardIdentifier="EventsNavigationController" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="326" customClass="EventsNavigationController" sceneMemberID="viewController" modalTransitionStyle="crossDissolve">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Categories" id="329"/>
+                    <tabBarItem key="tabBarItem" id="329" title="Events"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="330">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -147,7 +147,7 @@
         <!--Title-->
         <scene sceneID="481">
             <objects>
-                <viewController storyboardIdentifier="ViewController2" id="482" customClass="ViewController2" sceneMemberID="viewController" modalTransitionStyle="crossDissolve">
+                <viewController storyboardIdentifier="EventsViewController" id="482" customClass="EventsViewController" sceneMemberID="viewController" modalTransitionStyle="crossDissolve">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="479"/>
                         <viewControllerLayoutGuide type="bottom" id="480"/>
@@ -161,7 +161,7 @@
         <!--Settings-->
         <scene sceneID="1270">
             <objects>
-                <navigationController storyboardIdentifier="NavigationController3" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="1271" customClass="NavigationController3" sceneMemberID="viewController" modalTransitionStyle="partialCurl">
+                <navigationController storyboardIdentifier="SettingsNavigationController" hidesBottomBarWhenPushed="YES" navigationBarHidden="YES" id="1271" customClass="SettingsNavigationController" sceneMemberID="viewController" modalTransitionStyle="partialCurl">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Settings" id="1274"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -184,13 +184,13 @@
         <!--Title-->
         <scene sceneID="1617">
             <objects>
-                <viewController id="1618" sceneMemberID="viewController">
+                <viewController id="1618" sceneMemberID="viewController" customClass="SettingsViewController" storyboardIdentifier="SettingsViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1615"/>
                         <viewControllerLayoutGuide type="bottom" id="1616"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1619">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -201,5 +201,62 @@
             </objects>
             <point key="canvasLocation" x="2141" y="1632"/>
         </scene>
+        <scene sceneID="2062">
+            <objects>
+                <viewController id="2063" sceneMemberID="viewController" customClass="EventsItemDetailedVC" storyboardIdentifier="EventsItemDetailedVC">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2060"/>
+                        <viewControllerLayoutGuide type="bottom" id="2061"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2064">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2065" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2638" y="-677"/>
+        </scene>
+        <scene sceneID="2069">
+            <objects>
+                <viewController id="2070" sceneMemberID="viewController" customClass="NotificationCategorySelectorVC" storyboardIdentifier="NotificationCategorySelectorVC">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2067"/>
+                        <viewControllerLayoutGuide type="bottom" id="2068"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2071">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2072" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2606" y="1644"/>
+        </scene>
+        <scene sceneID="2076">
+            <objects>
+                <viewController id="2077" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2074"/>
+                        <viewControllerLayoutGuide type="bottom" id="2075"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2078">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="CategoryPickerVC" destination="2078" id="name-outlet-2078"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2079" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2967" y="803"/>
+        </scene>
     </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina47"/>
+    </simulatedMetricsContainer>
 </document>
