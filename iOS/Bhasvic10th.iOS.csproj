@@ -139,9 +139,9 @@
     <Compile Include="ViewControllerSettings.designer.cs">
       <DependentUpon>ViewControllerSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewController2.cs" />
-    <Compile Include="ViewController2.designer.cs">
-      <DependentUpon>ViewController2.cs</DependentUpon>
+    <Compile Include="CategoriesController.cs" />
+    <Compile Include="CategoriesController.designer.cs">
+      <DependentUpon>CategoriesController.cs</DependentUpon>
     </Compile>
     <Compile Include="NavigationController3.cs" />
     <Compile Include="NavigationController3.designer.cs">

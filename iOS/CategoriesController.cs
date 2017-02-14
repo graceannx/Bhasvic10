@@ -13,7 +13,7 @@ using System.Linq;
 namespace Bhasvic10th.iOS
 {
 
-	public partial class ViewController2 : UIViewController, IUITableViewDelegate, IUITableViewDataSource
+	public partial class CategoriesController : UIViewController, IUITableViewDelegate, IUITableViewDataSource
 	{
 		UIViewController SecondViewController;
 		List<NewsItem> itemList;
@@ -21,7 +21,7 @@ namespace Bhasvic10th.iOS
 
 
 
-		public ViewController2(IntPtr handle) : base(handle)
+		public CategoriesController(IntPtr handle) : base(handle)
 		{
 
 

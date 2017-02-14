@@ -12,7 +12,7 @@ using UIKit;
 namespace Bhasvic10th.iOS
 {
     [Register ("ViewController2")]
-    partial class ViewController2
+    partial class CategoriesController
     {
         void ReleaseDesignerOutlets ()
         {
