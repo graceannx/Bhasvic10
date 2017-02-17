@@ -11,14 +11,19 @@ using UIKit;
 
 namespace Bhasvic10th.iOS
 {
-    [Register ("HomeViewController")]
-    partial class ViewControllerMain
+    [Register ("TabController1")]
+    partial class TabController1
     {
         [Outlet]
-        UIKit.UIButton Button { get; set; }
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITabBar TabBar { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
+            if (TabBar != null) {
+                TabBar.Dispose ();
+                TabBar = null;
+            }
         }
     }
 }

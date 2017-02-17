@@ -118,11 +118,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewControllerMain.cs" />
-    <Compile Include="ViewControllerMain.designer.cs">
-      <DependentUpon>ViewControllerMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TableSource.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="NewsItem.cs" />
     <Compile Include="datas\RestDeserialize.cs" />
@@ -131,48 +126,16 @@
     <Compile Include="ItemDetailedViewController_.designer.cs">
       <DependentUpon>ItemDetailedViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="NavigationController.cs" />
-    <Compile Include="NavigationController.designer.cs">
-      <DependentUpon>NavigationController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllerSettings.cs" />
     <Compile Include="ViewControllerSettings.designer.cs">
       <DependentUpon>ViewControllerSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="CategoriesController.cs" />
-    <Compile Include="CategoriesController.designer.cs">
-      <DependentUpon>CategoriesController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NavigationController3.cs" />
-    <Compile Include="NavigationController3.designer.cs">
-      <DependentUpon>NavigationController3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItemDetailedtemp.cs" />
-    <Compile Include="ItemDetailedtemp.designer.cs">
-      <DependentUpon>ItemDetailedtemp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Picker.cs" />
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="SQLite.cs" />
-    <Compile Include="NavigationController4.cs" />
-    <Compile Include="NavigationController4.designer.cs">
-      <DependentUpon>NavigationController4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewController4.cs" />
-    <Compile Include="ViewController4.designer.cs">
-      <DependentUpon>ViewController4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ItemDetailedVCSTBd.cs" />
-    <Compile Include="ItemDetailedVCSTBd.designer.cs">
-      <DependentUpon>ItemDetailedVCSTBd.cs</DependentUpon>
-    </Compile>
     <Compile Include="SettingsNavigationController.cs" />
     <Compile Include="SettingsNavigationController.designer.cs">
       <DependentUpon>SettingsNavigationController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HomeNavigationController.cs" />
-    <Compile Include="HomeNavigationController.designer.cs">
-      <DependentUpon>HomeNavigationController.cs</DependentUpon>
     </Compile>
     <Compile Include="EventsNavigationController.cs" />
     <Compile Include="EventsNavigationController.designer.cs">
@@ -181,10 +144,6 @@
     <Compile Include="EventsViewController.cs" />
     <Compile Include="EventsViewController.designer.cs">
       <DependentUpon>EventsViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HomeViewController.cs" />
-    <Compile Include="HomeViewController.designer.cs">
-      <DependentUpon>HomeViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
@@ -204,6 +163,22 @@
     </Compile>
     <Compile Include="LocalBhasvicDB.cs" />
     <Compile Include="NewsItemGrabber.cs" />
+    <Compile Include="ViewControllerMain.cs" />
+    <Compile Include="ViewControllerMain.designer.cs">
+      <DependentUpon>ViewControllerMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeNavigationController.cs" />
+    <Compile Include="HomeNavigationController.designer.cs">
+      <DependentUpon>HomeNavigationController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeViewController.cs" />
+    <Compile Include="HomeViewController.designer.cs">
+      <DependentUpon>HomeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabController1.cs" />
+    <Compile Include="TabController1.designer.cs">
+      <DependentUpon>TabController1.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

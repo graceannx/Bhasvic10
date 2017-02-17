@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="4">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="5" customClass="ViewController" sceneMemberID="viewController" modalTransitionStyle="flipHorizontal">
+                <viewController storyboardIdentifier="HomeViewController" id="5" customClass="HomeViewController" sceneMemberID="viewController" modalTransitionStyle="flipHorizontal">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2"/>
                         <viewControllerLayoutGuide type="bottom" id="3"/>
@@ -102,7 +102,7 @@
         <!--Tab Controller-->
         <scene sceneID="155">
             <objects>
-                <tabBarController storyboardIdentifier="TabController" id="156" customClass="TabController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabController1" id="156" customClass="TabController1" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" restorationIdentifier="TabBar" barStyle="black" id="159">
                         <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
