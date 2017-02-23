@@ -11,6 +11,7 @@ using Foundation;
 using System.Linq;
 using CoreAnimation;
 using Foundation;
+using System.Drawing;
 
 namespace Bhasvic10th.iOS
 {
@@ -60,62 +61,14 @@ namespace Bhasvic10th.iOS
 			titleLabel.Text = "BHASVIC";
 			titleLabel.Font = UIFont.BoldSystemFontOfSize(20);
 			titleLabel.TextColor = UIColor.LightTextColor;
-
-
-
-
 			View.AddSubview(titleLabel);
 
-			var picker = new UIPickerView(new CGRect(10, 20, View.Bounds.Width - 20, 150));
-			string[] categories = new string[] {"Economics, Business & Acc", "Archaeology, Classical Civs, History","Art, Photog, Textiles, Graphics","Biology & Env Studies","Chemistry","Computing IT","Media & Film","Dance, Drama, Theatre Studies","English","ESOL","Languages","Geography","Law, Politics, Philosophy","Maths","Music","Physics","Sociology, Psych, H & Soc Care","Sport and PE","SU Events","General","UCAS, University","Apprenticeship, Work","Extra-Curricular","Tutor & Welfare"};
-			picker.BackgroundColor = UIColor.LightGray;
-			picker.Model = new PickerViewModel();
-			picker.Hidden = true;
+			var homeButton = UIButton.FromType(UIButtonType.System);
+			homeButton.Frame = new CGRect(100, 20, View.Bounds.Width - 10, 30);
+			homeButton.SetTitle("HOME", UIControlState.Normal);
+			View.AddSubview(homeButton);
 
 
-
-
-			//	picker.AccessibilityActivate 
-			View.AddSubview(picker);
-			//var source = new;
-
-
-
-
-
-
-			var mainlabel = UIButton.FromType(UIButtonType.RoundedRect);
-			mainlabel.SetTitle("HOME", UIControlState.Normal);
-			mainlabel.AccessibilityFrame = new CGRect(View.Frame.Right - 75, 20, View.Bounds.Width - 10, 30);
-			mainlabel.Font = UIFont.BoldSystemFontOfSize(20);
-			mainlabel.SetTitleColor(UIColor.FromRGB(250, 209, 124), UIControlState.Disabled);
-			View.AddSubview(mainlabel);
-
-
-			var button = new UIButton
-			{
-				Frame = new CGRect(0, 50, View.Bounds.Width, 30),
-				BackgroundColor = UIColor.Cyan
-				                         
-
-				                          
-			};
-
-			button.TouchUpInside += delegate
-			{
-				if (picker.Hidden == false)
-				{
-					picker.Hidden = true;
-					selectedtab = categories[picker.SelectedRowInComponent(0)];
-					Console.WriteLine(selectedtab);
-				}
-				else {
-					picker.Hidden = false;
-
-				}
-			};
-
-			View.AddSubview(button);
 
 		
 
@@ -195,132 +148,23 @@ namespace Bhasvic10th.iOS
 
 
 
-
-
-			//using (var conn = new SQLite.SQLiteConnection(_pathToDatabase))
-			//{
-			//	conn.CreateTable<NewsItem>();
-			//}
-
-
-			//button.SetTitle("hello", UIControlState.Normal);
-			//View.Add(button);
-			//button.TouchUpInside += (sender, e) =>
-			//{
-			//	SecondViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as SecondViewController;
-			//	controller.name = itemList.First().Name;
-			//	this.NavigationController.PushViewController(controller, true);
-
-
-			//}
-			//;
-
-			/*string dbPath = Path.Combine(
-				Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ormdemo.db3");
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<RootClass>();
-			//	db.Insert(bulletinOb);
-
-
-				var table = db.Table<RootClass>();
-				foreach (var s in table)
-				{
-					Console.WriteLine(s.Name + " " + s.DatePublished);
-				}
-
-
-			//foreach (Array bulletinOb in RootClass) { 
-			//}
-		//	RootClass p1 = bulletinOb[0];
-		//	RootClass p2 = bulletinOb[1];
-		//	RootClass p3 = bulletinOb[2];
-			RootClass p4 = bulletinOb[3];
-			RootClass p5 = bulletinOb[4];
-*/
-
-			// Perform any additional setup after loading the view, typically from a nib.
-
-			//	Console.WriteLine(itemList[0].Name);
-
-
-
-			//	testItem.LineBreakMode = UILineBreakMode.CharacterWrap;
-			//	View.AddSubview(testItem);
-			//bulletinText.text = bulletin.Name.bulletin;
-
-
-			/*int i;
-			string[] data = new string[itemList.Count];
-			for (i = 0; i < itemList.Count; i++) {
-				data[i] = itemList[i].Name;
-			}*/
-
-
-
-			//	string[] data = new string[] {"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","b" ,"c" ,"d" ,"e" };
-			//create table view
-
-			//var g = UIGraphics.GetCurrentContext();
-			//g.SetLineWidth(10);
-			//UIColor.Blue.SetFill();
-			//UIColor.Red.SetStroke();
-
-			////create geometry
-			//var path = new CGPath();
-
-			//path.AddLines(new CGPoint[]{
-			//	new CGPoint (0, 50),
-			//	new CGPoint (View.Bounds.Width, View.Bounds.Height) });
-
-			//path.CloseSubpath();
-
-			////add geometry to graphics context and draw it
-			//g.AddPath(path);
-			//g.DrawPath(CGPathDrawingMode.FillStroke);
-
-
-
 			UITableView _table;
 			_table = new UITableView
 			{
-				Frame = new CGRect(0, 150, View.Bounds.Width, View.Bounds.Height - 100),
-				BackgroundColor =  UIColor.FromRGB(24,24,24)			//	Source = new TableSource(itemList, NavigationController)
+				Frame = new CGRect(-10, 60, View.Bounds.Width, (categorisedItemList.Count*45)),
+				BackgroundColor =  UIColor.FromRGB(24,24,24)	//	Source = new TableSource(itemList, NavigationController)
 
 			};
-			//TableSource source = new TableSource(itemList, NavigationController);
-			//source.RowBeenSelected += handleRowBeenSelected;
 
 
-
-			for (int i = 1; i <= itemList.Count-1; i++)
-			{
-				if (itemList.ElementAt(i).Category != selectedtab)
-				{
-					categorisedItemList.Remove(itemList.ElementAt(i));
-
-				}
-			}
 			_table.WeakDataSource = this;
 			_table.WeakDelegate = this;
 			View.AddSubview(_table);
-
-
-
-
-
-
-
 		}
 
 
 
-		//	public void handleRowBeenSelected(object sender, EventArgs e) { 
-
-		//SecondViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as SecondViewController;
-		//	this.NavigationController.PushViewController(controller, true);
-
-		//	}
-		//
+	
 
 
 
@@ -336,13 +180,26 @@ namespace Bhasvic10th.iOS
 
 
 
-		public nint RowsInSection(UITableView tableView, nint section)
-		{
-			//SecondViewController controller = this.Storyboard.InstantiateViewController("SecondViewController") as SecondViewController;
-			//this.NavigationController.PushViewController(controller, true);
-			return itemList.Count;
+	
+		 
+		public nint RowsInSection(UITableView tableView, nint section) {
+			
+			int n = 0;
+			int tablecount = categorisedItemList.Count;
+			Console.WriteLine(tablecount);
+			while (n == 0)
+			{
+				if (categorisedItemList.ElementAt(tablecount -1).ToString() == "")
+				{
+					tablecount = tablecount - 1;
+				}
+				else {
+					return tablecount;
+				}
+			}
+			return tablecount;
+				
 		}
-
 
 	
 		 [Export("tableView:didSelectRowAtIndexPath:")]
@@ -372,11 +229,11 @@ namespace Bhasvic10th.iOS
 
 			if (indexPath.Row % 2 == 0)
 			{
-				cell.BackgroundColor = UIColor.FromRGB(13, 13, 13);
+				cell.BackgroundColor = UIColor.FromRGB(25, 25, 25);
 
 			}
 			else {
-				cell.BackgroundColor = UIColor.FromRGB(24, 24, 24);
+				cell.BackgroundColor = UIColor.FromRGB(22, 22, 22);
 	  
 			}
 			//produces a cell in a default style
@@ -395,10 +252,10 @@ namespace Bhasvic10th.iOS
 		//	throw new NotImplementedException();
 		//}
 
-		//public nint GetRowsInComponent(UIPickerView pickerView, nint component)
-		//{
-		//	throw new NotImplementedException();
-		//}
+		public nint GetRowsInComponent(UIPickerView pickerView, nint component)
+		{
+		throw new NotImplementedException();
+		}
 
 		//[Export("pickerView:titleForRow:forComponent:")]
 		//public string GetTitle(UIPickerView pickerView, nint row, nint component)

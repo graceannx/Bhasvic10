@@ -20,7 +20,7 @@ namespace Bhasvic10th.iOS
 	{
 
 
-		UIScrollView scrollView;
+		UIStackView StackView;
 		//public string name { get;  set; }
 		//	public string date { get; set; }
 		//	public string content { get; set; }
@@ -37,26 +37,28 @@ namespace Bhasvic10th.iOS
 		{
 			base.ViewDidLoad();
 
-			scrollView = new UIScrollView();
+
+
+			StackView = new UIStackView();
 
 
 
 			var titleLabel = new UILabel(new CGRect(10, 20, View.Bounds.Width - 10, 30));
 			titleLabel.Text = "BHASVIC";
 			titleLabel.Font = UIFont.BoldSystemFontOfSize(25);
-			View.AddSubview(titleLabel);
+			StackView.AddArrangedSubview(titleLabel);
 
 			var nameLabel = new UILabel(new CGRect(10, 0, View.Bounds.Width - 10, 200));
 			nameLabel.Text = NewsItem.Name;
 			nameLabel.Lines = 0;
 			nameLabel.Font = UIFont.BoldSystemFontOfSize(30);
 			nameLabel.LineBreakMode = UILineBreakMode.WordWrap;
-			scrollView.AddSubview(nameLabel);
+			StackView.AddArrangedSubview(nameLabel);
 
 			var dateLabel = new UILabel(new CGRect(10, 100, View.Bounds.Width - 10, 30));
 			DateTime dt = DateTime.ParseExact(NewsItem.DatePublished, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = dt.ToShortDateString();
-			scrollView.AddSubview(dateLabel);
+			StackView.AddArrangedSubview(dateLabel);
 
 			var contentLabel = new UILabel(new CGRect(10, 120, View.Bounds.Width - 20, 300));
 			string noHTML = Regex.Replace(NewsItem.Content, @"<[^>]+>|&nbsp;", "").Trim();
@@ -64,25 +66,25 @@ namespace Bhasvic10th.iOS
 			contentLabel.Text = noHTMLNormalised;
 			contentLabel.Lines = 0;
 			contentLabel.LineBreakMode = UILineBreakMode.WordWrap;
-			scrollView.AddSubview(contentLabel);
+			StackView.AddArrangedSubview(contentLabel);
 
 			var dateoELabel = new UILabel(new CGRect(10, 80, View.Bounds.Width - 10, 30));
 			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = NewsItem.DateOfEvent;
 			Console.WriteLine(NewsItem.DateOfEvent);
 
-			scrollView.AddSubview(dateoELabel);
+			StackView.AddArrangedSubview(dateoELabel);
 
 
 			var dateNLabel = new UILabel(new CGRect(10, 130, View.Bounds.Width - 10, 30));
 			//DateTime dtt = DateTime.ParseExact(NewsItem.DateOfEvent, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture);
 			dateLabel.Text = NewsItem.NotificationDate;
 			Console.WriteLine(NewsItem.NotificationDate);
-			scrollView.AddSubview(dateNLabel);
+			StackView.AddArrangedSubview(dateNLabel);
 
 
 
-					
+
 
 			//var image = new UIImage();
 			////image = this.LoadImage("some image url");
@@ -97,11 +99,9 @@ namespace Bhasvic10th.iOS
 			//scrollView.AddSubview(categoryLabel);
 
 
-			var urlLabel = new UILabel(new CGRect(10,500 , View.Bounds.Width-10, 30));
-			urlLabel.Text = NewsItem.Url;
-			scrollView.AddSubview(urlLabel);
 
-			this.View.AddSubview(scrollView);
+			View.AddSubview(StackView);
+
 
 		//	NavigationController.SetHasNavigationBar(this, false);
 			//this.NavigationController.PopToRootViewController(true);
@@ -124,13 +124,13 @@ namespace Bhasvic10th.iOS
 			return UIImage.LoadFromData(NSData.FromArray(contents));
 		}
 
-		public override void ViewDidLayoutSubviews()
-		{
+		//public override void ViewDidLayoutSubviews()
+		//{
 			
-			scrollView.Frame = new CoreGraphics.CGRect(0, 0, this.View.Bounds.Size.Width, 500);
-			scrollView.ContentSize = scrollView.Frame.Size; // This may not be what you actually want, but what you had before was certainly wrong.
-		//	scrollView.titleLabel.Frame = new CoreGraphics.CGRect(0, 0, this.View.Bounds.Size.Width, this.View.Bounds.Size.Height);
-		}
+		//	scrollView.Frame = new CoreGraphics.CGRect(0, 0, this.View.Bounds.Size.Width, 500);
+		//	scrollView.ContentSize = scrollView.Frame.Size; // This may not be what you actually want, but what you had before was certainly wrong.
+		////	scrollView.titleLabel.Frame = new CoreGraphics.CGRect(0, 0, this.View.Bounds.Size.Width, this.View.Bounds.Size.Height);
+		////}
 
     }
 }
