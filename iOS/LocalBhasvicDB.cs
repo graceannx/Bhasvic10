@@ -41,8 +41,33 @@ namespace Bhasvic10th.iOS
 
 		static public void createSettingsItemTable()
 		{
-		///	db.CreateTable<>();
+			db.CreateTable<SystemSettings>();
+			db.CreateTable<ChosenCategories>();
 			//return true;
+		}
+
+		static public bool updateDBWithJSON(string jsonString)
+		{
+			//Console.WriteLine("jsonString: " + jsonString);
+			itemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
+			//categorisedItemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
+			//categorisedItemList.AddRange(itemList);
+			db.RunInTransaction(() =>
+			{
+				foreach (var item in itemList)
+				{
+					db.InsertOrReplace(item);
+				}
+
+			});
+			return true;
+		}
+
+		static public List<NewsItem> getItemList()
+		{
+			var query = db.Table<NewsItem>().Select(res => res);
+
+			return query.ToList();
 		}
 	}
 }

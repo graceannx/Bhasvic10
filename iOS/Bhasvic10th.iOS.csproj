@@ -150,10 +150,6 @@
     <Compile Include="EventsNavigationController.designer.cs">
       <DependentUpon>EventsNavigationController.cs</DependentUpon>
     </Compile>
-    <Compile Include="EventsViewController.cs" />
-    <Compile Include="EventsViewController.designer.cs">
-      <DependentUpon>EventsViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewController.cs" />
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
@@ -180,10 +176,6 @@
     <Compile Include="HomeNavigationController.designer.cs">
       <DependentUpon>HomeNavigationController.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeViewController.cs" />
-    <Compile Include="HomeViewController.designer.cs">
-      <DependentUpon>HomeViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="TabController1.cs" />
     <Compile Include="TabController1.designer.cs">
       <DependentUpon>TabController1.cs</DependentUpon>
@@ -203,6 +195,7 @@
     </Compile>
     <Compile Include="SystemSettings.cs" />
     <Compile Include="ChosenCategories.cs" />
+    <Compile Include="HomeTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
