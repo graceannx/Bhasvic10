@@ -179,6 +179,18 @@
     <Compile Include="TabController1.designer.cs">
       <DependentUpon>TabController1.cs</DependentUpon>
     </Compile>
+    <Compile Include="TabController.cs" />
+    <Compile Include="TabController.designer.cs">
+      <DependentUpon>TabController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryPickerVC.cs" />
+    <Compile Include="CategoryPickerVC.designer.cs">
+      <DependentUpon>CategoryPickerVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TabController0.cs" />
+    <Compile Include="TabController0.designer.cs">
+      <DependentUpon>TabController0.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
