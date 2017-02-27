@@ -16,11 +16,9 @@ namespace Bhasvic10th.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITabBar TabBar { get; set; }
 
-		UIKit.UITabBar TabBar { get; set; }
-
-
-		void ReleaseDesignerOutlets ()
+        void ReleaseDesignerOutlets ()
         {
             if (TabBar != null) {
                 TabBar.Dispose ();

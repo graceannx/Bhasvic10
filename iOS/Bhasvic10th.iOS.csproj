@@ -93,6 +93,15 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="SQLite.Net">
+      <HintPath>packages\SQLite.Net-PCL.3.0.5\lib\Xamarin.iOS10\SQLite.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.Net.Platform.XamarinIOS.Unified">
+      <HintPath>packages\SQLite.Net-PCL.3.0.5\lib\Xamarin.iOS10\SQLite.Net.Platform.XamarinIOS.Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>packages\SQLiteNetExtensions.1.3.0\lib\portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bhasvic10th\Bhasvic10th.csproj">
@@ -162,8 +171,8 @@
       <DependentUpon>NotificationCategorySelectorVC.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalBhasvicDB.cs" />
-    <Compile Include="NewsItemGrabber.cs" />
     <Compile Include="ViewControllerMain.cs" />
+    <Compile Include="NewsItemGrabber.cs" />
     <Compile Include="ViewControllerMain.designer.cs">
       <DependentUpon>ViewControllerMain.cs</DependentUpon>
     </Compile>
@@ -179,18 +188,21 @@
     <Compile Include="TabController1.designer.cs">
       <DependentUpon>TabController1.cs</DependentUpon>
     </Compile>
-    <Compile Include="TabController.cs" />
-    <Compile Include="TabController.designer.cs">
-      <DependentUpon>TabController.cs</DependentUpon>
+    <Compile Include="EventsVC.cs" />
+    <Compile Include="EventsVC.designer.cs">
+      <DependentUpon>EventsVC.cs</DependentUpon>
     </Compile>
-    <Compile Include="CategoryPickerVC.cs" />
-    <Compile Include="CategoryPickerVC.designer.cs">
-      <DependentUpon>CategoryPickerVC.cs</DependentUpon>
+    <Compile Include="EventsTableSource.cs" />
+    <Compile Include="SettingsCategoryPicker.cs" />
+    <Compile Include="SettingsCategoryPicker.designer.cs">
+      <DependentUpon>SettingsCategoryPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="TabController0.cs" />
-    <Compile Include="TabController0.designer.cs">
-      <DependentUpon>TabController0.cs</DependentUpon>
+    <Compile Include="HomeVC.cs" />
+    <Compile Include="HomeVC.designer.cs">
+      <DependentUpon>HomeVC.cs</DependentUpon>
     </Compile>
+    <Compile Include="SystemSettings.cs" />
+    <Compile Include="ChosenCategories.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

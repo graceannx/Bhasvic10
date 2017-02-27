@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using System;
+using Foundation;
 using UIKit;
 
 namespace Bhasvic10th.iOS
@@ -42,6 +43,8 @@ namespace Bhasvic10th.iOS
 				application.RegisterUserNotificationSettings(notificationSettings);
 			}
 
+
+			var hello = LocalBhasvicDB.db;
 
 
 			return true;

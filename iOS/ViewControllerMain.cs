@@ -97,6 +97,9 @@ namespace Bhasvic10th.iOS
 
 			//Console.WriteLine(jsonString);
 			itemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
+
+
+
 			categorisedItemList = JsonConvert.DeserializeObject<List<NewsItem>>(jsonString);
 			//categorisedItemList.AddRange(itemList);
 			var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -184,20 +187,21 @@ namespace Bhasvic10th.iOS
 		 
 		public nint RowsInSection(UITableView tableView, nint section) {
 			
-			int n = 0;
-			int tablecount = categorisedItemList.Count;
-			Console.WriteLine(tablecount);
-			while (n == 0)
-			{
-				if (categorisedItemList.ElementAt(tablecount -1).ToString() == "")
-				{
-					tablecount = tablecount - 1;
-				}
-				else {
-					return tablecount;
-				}
-			}
-			return tablecount;
+			//int n = 0;
+			//int tablecount = categorisedItemList.Count;
+			//Console.WriteLine(tablecount);
+			//while (n == 0)
+			//{
+			//	if (categorisedItemList.ElementAt(tablecount -1).ToString() == "")
+			//	{
+			//		tablecount = tablecount - 1;
+			//	}
+			//	else {
+			//		return tablecount;
+			//	}
+			//}
+			//todo make this bit work 
+			return 5;
 				
 		}
 
@@ -240,8 +244,8 @@ namespace Bhasvic10th.iOS
 			//cell.ContentView.BackgroundColor = UIColor.DarkGray;
 			cell.TextLabel.TextColor = UIColor.LightTextColor;
 
-			cell.TextLabel.Text = categorisedItemList.ElementAt(indexPath.Row).Name;
-
+			cell.TextLabel.Text = "test";
+			//categorisedItemList.ElementAt(indexPath.Row).Name
 			return cell;
 
 
