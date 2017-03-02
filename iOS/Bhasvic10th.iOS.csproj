@@ -196,6 +196,11 @@
     <Compile Include="SystemSettings.cs" />
     <Compile Include="ChosenCategories.cs" />
     <Compile Include="HomeTableSource.cs" />
+    <Compile Include="EventsItemDetailedVCs.cs" />
+    <Compile Include="EventsItemDetailedVCs.designer.cs">
+      <DependentUpon>EventsItemDetailedVCs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventsItemDetailedTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

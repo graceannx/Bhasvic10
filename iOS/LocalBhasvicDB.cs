@@ -24,7 +24,7 @@ namespace Bhasvic10th.iOS
 			logTag = "LocalBhasvicDB";
 			documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
 			libraryPath = Path.Combine(documentsPath, "../Library/");
-			DBLocation = Path.Combine(libraryPath, "MyDatabase.db3");
+			DBLocation = Path.Combine(libraryPath, "NewsItemDB.db3");
 			db = new SQLite.SQLiteConnection(DBLocation);
 			Console.WriteLine(db);
 			Console.WriteLine(DBLocation);
@@ -35,6 +35,7 @@ namespace Bhasvic10th.iOS
 
 		static public void createNewsItemTable()
 		{
+			
 			db.CreateTable<NewsItem>();
 			//return true;
 		}
@@ -65,8 +66,8 @@ namespace Bhasvic10th.iOS
 
 		static public List<NewsItem> getItemList()
 		{
-			var query = db.Table<NewsItem>().Select(res => res);
-
+			//var query = db.Table<NewsItem>().Select(res => res);
+			var query = db.Query<NewsItem>("select * from NewsItem");
 			return query.ToList();
 		}
 	}

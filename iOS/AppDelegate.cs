@@ -44,7 +44,7 @@ namespace Bhasvic10th.iOS
 			}
 
 
-			var hello = LocalBhasvicDB.db;
+		//	var hello = LocalBhasvicDB.db;
 
 
 			return true;
