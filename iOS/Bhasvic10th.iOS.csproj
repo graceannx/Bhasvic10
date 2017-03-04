@@ -204,6 +204,15 @@
     <Compile Include="HomeItemDetailedVCs.designer.cs">
       <DependentUpon>HomeItemDetailedVCs.cs</DependentUpon>
     </Compile>
+    <Compile Include="HomeItemDetailedVCz.cs" />
+    <Compile Include="HomeItemDetailedVCz.designer.cs">
+      <DependentUpon>HomeItemDetailedVCz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeCategoryPicker.cs" />
+    <Compile Include="HomeCategoryPicker.designer.cs">
+      <DependentUpon>HomeCategoryPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeCatPTableSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -9,7 +9,7 @@ namespace Bhasvic10th.iOS
 	public class HomeTableSource : UITableViewSource
 	{
 		public List<NewsItem> homeItemList;
-		string cellidentifier = "HomeEventsCell";
+		string cellidentifiers = "HomeEventCell";
 
 		public HomeTableSource(List<NewsItem> itemList)
 		{
@@ -20,12 +20,13 @@ namespace Bhasvic10th.iOS
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
 			 // defines each cell 
-			var cell = tableView.DequeueReusableCell(cellidentifier);
+			var cell = tableView.DequeueReusableCell(cellidentifiers);
 			if (cell == null)
 			{
-				cell = new UITableViewCell(UITableViewCellStyle.Default, cellidentifier);
+				cell = new UITableViewCell(UITableViewCellStyle.Default, cellidentifiers);
 			}
 			cell.TextLabel.Text = homeItemList.ElementAt(indexPath.Row).Name;
+			cell.DetailTextLabel.Text = homeItemList.ElementAt(indexPath.Row).Category;
 			//categorisedItemList.ElementAt(indexPath.Row).Name
 			return cell;
 		}

@@ -70,5 +70,12 @@ namespace Bhasvic10th.iOS
 			var query = db.Query<NewsItem>("select * from NewsItem");
 			return query.ToList();
 		}
+		static public List<NewsItem> getCatItemList(string chosenCat)
+		{
+			var query2 = db.Query<NewsItem>("select * from NewsItem where Category = '" + chosenCat + "'");
+			return query2.ToList();
+		
+		}
+
 	}
 }

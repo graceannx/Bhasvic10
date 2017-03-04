@@ -1,11 +1,13 @@
 using Foundation;
 using System;
 using UIKit;
+using System.Collections.Generic;
 
 namespace Bhasvic10th.iOS
 {
 	public partial class HomeVC : UITableViewController
 	{
+		string ChosenCat = "Geography A Level";
 
 		public HomeVC(IntPtr handle) : base(handle)
 		{
@@ -13,11 +15,12 @@ namespace Bhasvic10th.iOS
 
 
 
+
 		}
-		public override async void ViewWillAppear(bool animated)
+		public override  void ViewWillAppear(bool animated)
 		{
 
-			TableView.Source = new HomeTableSource(LocalBhasvicDB.getItemList());
+			TableView.Source = new HomeTableSource(LocalBhasvicDB.getCatItemList(ChosenCat));
 
 
 			base.ViewWillAppear(animated);
@@ -38,16 +41,17 @@ namespace Bhasvic10th.iOS
 			LocalBhasvicDB.updateDBWithJSON(jsonString);
 			Console.WriteLine(LocalBhasvicDB.getItemList());
 
-			TableView.Source = new EventsTableSource(LocalBhasvicDB.getItemList());
+
 		}
+
 		public override void PrepareForSegue(UIStoryboardSegue segue, NSObject sender)
 		{
 			if (segue.Identifier == "HomeEventsSegue")
 			{ // set in Storyboard
-				var navctlr = segue.DestinationViewController as HomeItemDetailedVCs;
+				var navctlr = segue.DestinationViewController as HomeItemDetailedVCz;
 				if (navctlr != null)
 				{
-					var source = TableView.Source as EventsTableSource;
+					var source = TableView.Source as HomeTableSource;
 					var rowPath = TableView.IndexPathForSelectedRow;
 					var item = source.GetItem(rowPath.Row);
 					navctlr.SetTask(this, item);
