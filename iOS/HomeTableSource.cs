@@ -1,30 +1,43 @@
 ﻿using System;
 using UIKit;
 using Foundation;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Bhasvic10th.iOS
 {
 	public class HomeTableSource : UITableViewSource
 	{
-		public HomeTableSource()
+		public List<NewsItem> homeItemList;
+		string cellidentifier = "HomeEventsCell";
+
+		public HomeTableSource(List<NewsItem> itemList)
 		{
+			homeItemList = itemList;
+			
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			string cellidentifier = "tablecell"; // defines each cell 
-			UITableViewCell cell = tableView.DequeueReusableCell(cellidentifier);
+			 // defines each cell 
+			var cell = tableView.DequeueReusableCell(cellidentifier);
 			if (cell == null)
 			{
 				cell = new UITableViewCell(UITableViewCellStyle.Default, cellidentifier);
 			}
-			cell.TextLabel.Text = "test";
+			cell.TextLabel.Text = homeItemList.ElementAt(indexPath.Row).Name;
 			//categorisedItemList.ElementAt(indexPath.Row).Name
 			return cell;
 		}
 
 		public override nint RowsInSection(UITableView tableview, nint section)
 		{
-			throw new NotImplementedException();
+			return homeItemList.Count;
+
+		}
+		public NewsItem GetItem(int id)
+		{
+			return homeItemList.ElementAt(id);
 		}
 	}
 }

@@ -10,7 +10,7 @@ namespace Bhasvic10th.iOS
 
 	{
 		public List<NewsItem> eventItemList;
-		string cellidentifier = "EventsCell"; // defines each cell 
+		string cellidentifier = "EventsCell";// defines each cell 
 
 		public EventsTableSource(List<NewsItem> itemList)
 		{
