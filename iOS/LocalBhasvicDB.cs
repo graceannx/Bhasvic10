@@ -43,7 +43,7 @@ namespace Bhasvic10th.iOS
 		static public void createSettingsItemTable()
 		{
 			db.CreateTable<SystemSettings>();
-			db.CreateTable<ChosenCategories>();
+			//db.CreateTable<ChosenCategories>();
 			//return true;
 		}
 

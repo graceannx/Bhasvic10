@@ -19,8 +19,8 @@ namespace Bhasvic10th.iOS
 		}
 		public override  void ViewWillAppear(bool animated)
 		{
-
-			TableView.Source = new HomeTableSource(LocalBhasvicDB.getCatItemList(ChosenCat));
+			Console.WriteLine(ChosenCategories.ChosenCategory);
+			TableView.Source = new HomeTableSource(LocalBhasvicDB.getCatItemList(ChosenCategories.ChosenCategory));
 
 
 			base.ViewWillAppear(animated);

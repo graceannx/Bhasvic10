@@ -14,8 +14,15 @@ namespace Bhasvic10th.iOS
         }
 		public override void ViewDidLoad()
 		{
-			TableView.Source = new HomeCatPTableSource();
 			base.ViewDidLoad();
+			TableView.Source = new HomeCatPTableSource();
+
+			if (TableView.IndexPathForSelectedRow != null)
+			{
+				ChosenCategories.ChosenCategory = ChosenCategories.categories[TableView.IndexPathForSelectedRow.Row];
+			}
+
+
 		}
     }
 }
