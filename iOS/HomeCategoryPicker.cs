@@ -17,12 +17,19 @@ namespace Bhasvic10th.iOS
 			base.ViewDidLoad();
 			TableView.Source = new HomeCatPTableSource();
 
+
+
+
+		}
+		public override void ViewWillDisappear(bool animated)
+		{
 			if (TableView.IndexPathForSelectedRow != null)
 			{
 				ChosenCategories.ChosenCategory = ChosenCategories.categories[TableView.IndexPathForSelectedRow.Row];
 			}
 
 
+			base.ViewWillDisappear(animated);
 		}
     }
 }

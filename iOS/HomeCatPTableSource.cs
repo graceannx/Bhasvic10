@@ -13,7 +13,7 @@ namespace Bhasvic10th.iOS
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			var cellidentifier = "S";
+			var cellidentifier = "CategoryPickerCell";
 			var cell = tableView.DequeueReusableCell(cellidentifier);
 			if (cell == null)
 			{

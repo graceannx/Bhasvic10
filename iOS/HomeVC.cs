@@ -7,7 +7,7 @@ namespace Bhasvic10th.iOS
 {
 	public partial class HomeVC : UITableViewController
 	{
-		string ChosenCat = "Geography A Level";
+		
 
 		public HomeVC(IntPtr handle) : base(handle)
 		{
@@ -21,8 +21,6 @@ namespace Bhasvic10th.iOS
 		{
 			Console.WriteLine(ChosenCategories.ChosenCategory);
 			TableView.Source = new HomeTableSource(LocalBhasvicDB.getCatItemList(ChosenCategories.ChosenCategory));
-
-
 			base.ViewWillAppear(animated);
 
 		}
