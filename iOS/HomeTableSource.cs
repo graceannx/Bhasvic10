@@ -14,7 +14,7 @@ namespace Bhasvic10th.iOS
 		public HomeTableSource(List<NewsItem> itemList)
 		{
 			homeItemList = itemList;
-			
+
 		}
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
